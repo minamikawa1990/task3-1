@@ -7,19 +7,26 @@
     const add = document.getElementById('add');
     const input =document.getElementById('input');
     const tbodyTasks = document.getElementById('tasks');
+    const tbodyArray = [];
     
 
     // tbodyにtr要素を追加
     add.addEventListener('click' , () => {
         // trをtbodyに追加
+        
         const trItem = document.createElement('tr');
+
+        tbodyArray.push(trItem);
         tbodyTasks.appendChild(trItem);
         
         // IDとコメントをtdタグで作成
         const td_ID = document.createElement('td');
         const comment = document.createElement('td');
         
-        td_ID.id = 2;
+        for (let i = 0; i < tbodyArray.length; i++) {
+            td_ID.id = i;
+        }
+        
         td_ID.textContent = td_ID.id;
 
 
@@ -35,7 +42,8 @@
         trItem.appendChild(btn_working);
         trItem.appendChild(btn_remove);
         input.value = "";
-        console.log(trItem);
+        // console.log(trItem);
+        console.log(tbodyArray);
        
     })
 

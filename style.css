@@ -1,17 +1,24 @@
-/* li {
-    list-style:none;
+/* table {
+    width:500px;
+    border:solid 1px red;
+}
+table th {
+    width:50px;
 }
 
-#dones {
-   margin: 10px 10px;
+tbody tr td {
+    text-align:center;
+    width:100px;
+    display:inline-block;
+} */
+
+table th {
+    width:150px;
+    text-align:center;
 }
 
-.complete {
-    visibility: hidden;
-}
-.all {
-    visibility: hidden;
-} */
-/* .working {
-    visibility: hidden;
-} */
+tbody tr td {
+    text-align:center;
+    width:150px;
+    display:inline-block;
+} 
