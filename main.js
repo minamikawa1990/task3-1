@@ -7,143 +7,70 @@
     const add = document.getElementById('add');
     const input =document.getElementById('input');
     const tbodyTasks = document.getElementById('tasks');
-    const tbodyArray = [];
-    
+    const todos = [];
+    const btn_remove = document.createElement('button');
+    const trItem = document.createElement('tr');
 
-    // tbodyにtr要素を追加
-    add.addEventListener('click' , () => {
-        // trをtbodyに追加
+    function displayTodos() {
         
-        const trItem = document.createElement('tr');
-
-        tbodyArray.push(trItem);
-        tbodyTasks.appendChild(trItem);
-        
-        // IDとコメントをtdタグで作成
-        const td_ID = document.createElement('td');
-        const comment = document.createElement('td');
-        
-        for (let i = 0; i < tbodyArray.length; i++) {
-            td_ID.id = i;
+        const todo = {
+            task: input.value,
+            status: "作業中",
         }
-        
-        td_ID.textContent = td_ID.id;
 
+        // 配列に格納
+        todos.push(todo);
 
-        comment.textContent = input.value;
-        const btn_working = document.createElement('button');
-        const btn_remove = document.createElement('button');
-        btn_working.textContent = "作業中";
-        btn_remove.textContent = "削除";
+        // tr要素をtbodyに追加
+        const trItem = document.createElement('tr');
+        tbodyTasks.appendChild(trItem);
 
-        // 入力した列にコメント、ボタンなどの情報を付け加えている
-        trItem.appendChild(td_ID);
-        trItem.appendChild(comment);
-        trItem.appendChild(btn_working);
-        trItem.appendChild(btn_remove);
-        input.value = "";
-        // console.log(trItem);
-        console.log(tbodyArray);
-       
+        // IDの作成
+        const ID_td = document.createElement('td');
+        for (let i = 0; i < todos.length; i++) {
+            ID_td.id = i;
+        }
+        trItem.appendChild(ID_td);
+        ID_td.textContent = ID_td.id;
+            
+         //コメントの追加
+         const comment = document.createElement('td');
+         comment.textContent = todo.task;
+         trItem.appendChild(comment);
+ 
+         //ボタンの追加（作業中）
+         const working_td = document.createElement('td');
+         const btn_working = document.createElement('button');
+         trItem.appendChild(working_td);
+         working_td.appendChild(btn_working);
+         btn_working.textContent = todo.status;
+         console.log(working_td);
+         
+         //ボタンの追加（削除）
+         const remove_td = document.createElement('td');
+         const btn_remove = document.createElement('button');
+         trItem.appendChild(remove_td);
+         remove_td.appendChild(btn_remove);
+         btn_remove.textContent = '削除';
+         console.log(remove_td);
+ 
+         console.log(todos);
+         input.value = "";
+    }
+
+    add.addEventListener('click' , () => {
+        displayTodos();
     })
 
-    
-
-   
-
-    
-    
-
-    
-
-    // function btnChange () {
-    //     　const btn_working = document.createElement('button');
-    //       const workings = document.getElementsByClassName('working');
-    //     　btn_working.textContent = '作業中';
-    //     　workings[0].addEventListener('click', () => {
-    //     　　if (btn_working.textContent === '作業中') {
-    //     　　　btn_working.textContent = '完了';
-    //     　　} else {
-    //     　　　btn_working.textContent = '作業中';
-    //     　　}
-    //     　});
-    //     　return btn_working;
-    //     };
-    
-
-    // const radio_all = document.getElementById('radio_all');
-    // const radio_working = document.getElementById('radio_working');
-    // const radio_complete = document.getElementById('radio_complete');
-    // const add = document.getElementById('add');
-    // const ul = document.querySelector('ul');
-    // const input_task = document.getElementById('input');
-
-    // const li = document.createElement('li');
-    // const btn_working = document.createElement('button');
-    // const btn_remove = document.createElement('button');
-
-    
-    // // btn_working.addEventListener('click', () => {
-    // //     if(btn_working.textContent === '完了'){
-    // //         btn_working.textContent = '作業中';
-    // //     }else if(btn_working.textContent === '作業中'){
-    // //        btn_working.textContent = "完了";
-    // //    }
-    // // })
-    
-
-
-    // // radioボタンの仕分け関数
-    // function complete() {
-    //     radio_complete.addEventListener('click', () => {
-            
-    //     })
-    //     if(li.classList.contains('complete') === true) {
-
-    //     }
-    // }
-    // function working() {
-    //     if(li.classList.contains('working') === true) {
-
-    //     }
-    // }
-
-    // function all() {
-    //     if(li.classList.contains('all') === true) {
-
-    //     }
-    // }
-    
-   
-    // add.addEventListener('click', () => {
-
-    //     const li = document.createElement('li');
-    //     const btn_working = document.createElement('button');
-    //     const btn_remove = document.createElement('button');
-    
-    //     li.textContent = input_task.value;
-    //     btn_working.textContent = "作業中";
-    //     btn_remove.textContent = "削除"
-    //     btn_working.classList.add("working");
-    //     ul.appendChild(li);
-    //     li.appendChild(btn_working);
-    //     li.appendChild(btn_remove);
-    //     console.log(btn_working);
-    //     console.log(btn_remove);
-        
-    //     input_task.value = "";
-    // })
-
-    // const workings = document.getElementsByClassName('working');
-
-    
-    // btnChange();
-    
-    
-
-
-
-
-
-
 }
+
+    
+
+   
+
+    
+    
+
+    
+
+    
