@@ -8,7 +8,7 @@
     const input =document.getElementById('input');
     const tbodyTasks = document.getElementById('tasks');
     const todos = [];
-    const btn_remove = document.createElement('button');
+    const btnRemove = document.createElement('button');
     const trItem = document.createElement('tr');
 
     function displayTodos() {
@@ -22,16 +22,16 @@
         todos.push(todo);
 
         // tr要素をtbodyに追加
-        const trItem = document.createElement('tr');
+        
         tbodyTasks.appendChild(trItem);
 
         // IDの作成
-        const ID_td = document.createElement('td');
+        const tdId = document.createElement('td');
         for (let i = 0; i < todos.length; i++) {
-            ID_td.id = i;
+            tdId.id = i;
         }
-        trItem.appendChild(ID_td);
-        ID_td.textContent = ID_td.id;
+        trItem.appendChild(tdId);
+        tdId.textContent = tdId.id;
             
          //コメントの追加
          const comment = document.createElement('td');
@@ -39,20 +39,20 @@
          trItem.appendChild(comment);
  
          //ボタンの追加（作業中）
-         const working_td = document.createElement('td');
-         const btn_working = document.createElement('button');
-         trItem.appendChild(working_td);
-         working_td.appendChild(btn_working);
-         btn_working.textContent = todo.status;
-         console.log(working_td);
+         const tdWorking = document.createElement('td');
+         const btnWorking = document.createElement('button');
+         trItem.appendChild(tdWorking);
+         tdWorking.appendChild(btnWorking);
+         btnWorking.textContent = todo.status;
+         console.log(tdWorking);
          
          //ボタンの追加（削除）
-         const remove_td = document.createElement('td');
-         const btn_remove = document.createElement('button');
-         trItem.appendChild(remove_td);
-         remove_td.appendChild(btn_remove);
-         btn_remove.textContent = '削除';
-         console.log(remove_td);
+         const tdRemove = document.createElement('td');
+         const btnRemove = document.createElement('button');
+         trItem.appendChild(tdRemove);
+         tdRemove.appendChild(btnRemove);
+         btnRemove.textContent = '削除';
+         console.log(tdRemove);
  
          console.log(todos);
          input.value = "";
